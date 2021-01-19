@@ -13,14 +13,14 @@ class Node:
         return self._children
 
     def add_child(self, node):
-        if node not in self.children:
-            self._children.append(node)
-            node._parent = self
+        if not node in self.children:
+            self.children.append(node)
+            node.parent = self
 
     def remove_child(self, node):
         if node in self.children:
-            self._children.remove(node)
-            node._parent = None
+            self.children.remove(node)
+            node.parent = None
 
     @property
     def parent(self):
